@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-mantra',
@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./mantra.component.css']
 })
 export class MantraComponent implements OnDestroy {
-  form: FormGroup;
+  form: UntypedFormGroup;
   currentCount = 0;
   isPlaying = false;
 
@@ -16,7 +16,7 @@ export class MantraComponent implements OnDestroy {
   private animationId?: number;
   private iterationStart = 0;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: UntypedFormBuilder) {
     this.form = this.fb.group({
       mantra: ['', Validators.required],
       targetCount: [108, [Validators.required, Validators.min(1)]],
