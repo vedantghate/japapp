@@ -68,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "mantra-app:build:production"
+              "buildTarget": "mantra-app:build:production"
             },
             "development": {
-              "browserTarget": "mantra-app:build:development"
+              "buildTarget": "mantra-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "mantra-app:build"
+            "buildTarget": "mantra-app:build"
           }
         },
         "test": {
