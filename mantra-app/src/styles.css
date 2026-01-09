@@ -1,1 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
+.background {
+    background: radial-gradient(circle at top, #1c1f26, #0e1015 60%);
+}

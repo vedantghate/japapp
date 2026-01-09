@@ -1,0 +1,104 @@
+/* Full page background and centering */
+.background {
+  min-height: 100vh;
+  width: 100%;
+  background: radial-gradient(circle at top, #1c1f26, #0e1015 60%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Wrapper for title + mantra container */
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 480px;
+}
+
+/* Title styling */
+.title {
+  position: absolute;
+  top: 5rem; /* always 5rem from top edge */
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 2px;
+  opacity: 0.9;
+}
+
+
+/* Mantra container */
+.mantra-container {
+  width: 100%;
+  padding: 24px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  color: #999;
+  font-family: system-ui, sans-serif;
+}
+
+/* Karaoke line */
+.karaoke-line {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.karaoke-unit {
+  margin-right: 6px;
+  transition: color 0.1s linear, opacity 0.1s linear;
+}
+
+/* Counter */
+.count {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+/* Inputs */
+input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+}
+
+input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Controls */
+.controls {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+button {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  background: #4caf50;
+  color: white;
+  cursor: pointer;
+}
+
+.stop-button {
+  background: #f44336;
+}

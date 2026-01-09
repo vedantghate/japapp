@@ -1,0 +1,39 @@
+<div class="background">
+  <div class="content-wrapper">
+
+    <!-- Title -->
+    <div class="title">
+      || Mantra Jap ||
+    </div>
+
+    <!-- Mantra Container -->
+    <div class="mantra-container">
+
+      <form [formGroup]="form">
+        <input type="text" placeholder="Enter mantra" formControlName="mantra" />
+        <input type="number" placeholder="Enter count" formControlName="targetCount" />
+        <input type="number" placeholder="Enter reciting speed (in seconds)" step="0.5" formControlName="speed" />
+
+        <div class="controls">
+          <button type="button" (click)="start()">Start</button>
+          <button type="button" class="stop-button" (click)="stop()">Stop</button>
+        </div>
+      </form>
+
+      <div class="player">
+        <div class="karaoke-line">
+          <span *ngFor="let unit of units; let i = index"
+                [style.opacity]="getWordGlow(i)"
+                [style.color]="getWordGlow(i) === 1 ? '#fff' : '#999'">
+            {{ unit }}
+          </span>
+        </div>
+
+        <div class="count">
+          {{ currentCount }} / {{ form.value.targetCount }}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
