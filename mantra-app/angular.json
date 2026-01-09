@@ -102,7 +102,6 @@
       }
     }
   },
-  "defaultProject": "mantra-app",
   "cli": {
     "analytics": false
   }
