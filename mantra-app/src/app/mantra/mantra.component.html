@@ -16,6 +16,8 @@
 
         <div class="controls">
           <button type="button" (click)="start()">Start</button>
+          <button *ngIf="isPlaying" type="button" (click)="pause()">Pause</button>
+          <button *ngIf="!isPlaying && currentCount > 0 && currentCount < form.value.targetCount" type="button" (click)="resume()">Resume</button>
           <button type="button" class="stop-button" (click)="stop()">Stop</button>
         </div>
       </form>

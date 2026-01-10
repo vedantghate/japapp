@@ -76,6 +76,20 @@ export class MantraComponent implements OnDestroy {
     this.progress = 0;
   }
 
+  pause() {
+    this.isPlaying = false;
+    cancelAnimationFrame(this.animationId!);
+    this.animationId = undefined;
+  }
+
+  resume() {
+    if (this.isPlaying) return;
+
+    this.isPlaying = true;
+    this.iterationStart = performance.now() - this.progress * this.form.value.speed * 1000;
+    this.animateFrame();
+  }
+
   ngOnDestroy() {
     this.stop();
   }
