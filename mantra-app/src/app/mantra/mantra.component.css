@@ -21,9 +21,8 @@
 
 /* Title styling */
 .title {
-  position: absolute;
-  top: 5rem; /* always 5rem from top edge */
   width: 100%;
+  padding: 5rem;
   text-align: center;
   font-size: 2rem;
   font-weight: 700;
@@ -51,7 +50,7 @@
   text-align: center;
   font-size: 2rem;
   font-weight: 600;
-  white-space: nowrap;
+  white-space: pre-wrap;
 }
 
 .karaoke-unit {
