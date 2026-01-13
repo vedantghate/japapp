@@ -29,7 +29,7 @@ export class MantraComponent implements OnDestroy {
     if (this.form.invalid) return;
 
     this.stop();
-    this.currentCount = 0;
+    this.currentCount = 1;
     this.isPlaying = true;
     this.prepareUnits();
 
@@ -52,7 +52,7 @@ export class MantraComponent implements OnDestroy {
         this.pulseCurrent = true;
       });
 
-      if (this.currentCount == this.form.value.targetCount) {
+      if (this.currentCount > this.form.value.targetCount) {
         this.stop();
         return;
       }

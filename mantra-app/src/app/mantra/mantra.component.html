@@ -34,7 +34,7 @@
         <div class="count-board">
           <div class="count-card current" [class.pulse]="pulseCurrent">
             <span class="label">Completed</span>
-            <span class="value">{{ currentCount }}</span>
+            <span class="value">{{ currentCount > 0 ? currentCount - 1 : 0 }}</span>
           </div>
 
           <div class="count-card target">
