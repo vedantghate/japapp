@@ -10,6 +10,7 @@ export class MantraComponent implements OnDestroy {
   form: UntypedFormGroup;
   currentCount = 0;
   isPlaying = false;
+  pulseCurrent = false;
 
   units: string[] = [];
   progress = 0; // 0 → 1 progress of current iteration
@@ -28,7 +29,7 @@ export class MantraComponent implements OnDestroy {
     if (this.form.invalid) return;
 
     this.stop();
-    this.currentCount = 1;
+    this.currentCount = 0;
     this.isPlaying = true;
     this.prepareUnits();
 
@@ -45,8 +46,13 @@ export class MantraComponent implements OnDestroy {
 
     if (this.progress >= 1) {
       this.currentCount++;
-      if (this.currentCount > this.form.value.targetCount) {
-        this.currentCount = this.form.value.targetCount;
+
+      this.pulseCurrent = false;
+      requestAnimationFrame(() => {
+        this.pulseCurrent = true;
+      });
+
+      if (this.currentCount == this.form.value.targetCount) {
         this.stop();
         return;
       }
@@ -64,10 +70,10 @@ export class MantraComponent implements OnDestroy {
   }
 
   getWordGlow(i: number): number {
-  if (!this.units.length) return 0.25; // default opacity
-  const glow = this.progress * this.units.length - i;
-  return 0.25 + 0.75 * Math.max(0, Math.min(glow, 1));
-}
+    if (!this.units.length) return 0.25; // default opacity
+    const glow = this.progress * this.units.length - i;
+    return 0.25 + 0.75 * Math.max(0, Math.min(glow, 1));
+  }
 
   stop() {
     this.isPlaying = false;

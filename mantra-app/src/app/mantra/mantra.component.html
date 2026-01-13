@@ -17,23 +17,33 @@
         <div class="controls">
           <button type="button" (click)="start()">Start</button>
           <button *ngIf="isPlaying" type="button" (click)="pause()">Pause</button>
-          <button *ngIf="!isPlaying && currentCount > 0 && currentCount < form.value.targetCount" type="button" (click)="resume()">Resume</button>
+          <button *ngIf="!isPlaying && currentCount > 0 && currentCount < form.value.targetCount" type="button"
+            (click)="resume()">Resume</button>
           <button type="button" class="stop-button" (click)="stop()">Stop</button>
         </div>
       </form>
 
       <div class="player">
         <div class="karaoke-line">
-          <span *ngFor="let unit of units; let i = index"
-                [style.opacity]="getWordGlow(i)"
-                [style.color]="getWordGlow(i) === 1 ? '#fff' : '#999'">
+          <span *ngFor="let unit of units; let i = index" [style.opacity]="getWordGlow(i)"
+            [style.color]="getWordGlow(i) === 1 ? '#fff' : '#999'">
             {{ unit }}
           </span>
         </div>
 
-        <div class="count">
-          {{ currentCount }} / {{ form.value.targetCount }}
+        <div class="count-board">
+          <div class="count-card current" [class.pulse]="pulseCurrent">
+            <span class="label">Completed</span>
+            <span class="value">{{ currentCount }}</span>
+          </div>
+
+          <div class="count-card target">
+            <span class="label">Target</span>
+            <span class="value">{{ form.value.targetCount }}</span>
+          </div>
         </div>
+
+
       </div>
 
     </div>
